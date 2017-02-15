@@ -1,0 +1,29 @@
+<%= link_to 'DEPARTMENTS', departments_path %>
+
+<h1>All cars</h1>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Plate number</th>
+  </tr>
+
+  <hr>
+
+  <% @car.each do |car| %>
+    <tr>
+      <td><%= car.model %></td>
+      <td><%= car.plate %></td>
+      <td><%= link_to 'Show', car_path(car) %></td>
+      <td><%= link_to 'Edit', edit_car_path(car)%></td>
+      <td><%= link_to 'Destroy', car_path(car),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<%= link_to 'New car', new_car_path %>
