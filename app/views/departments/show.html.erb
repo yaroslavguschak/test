@@ -1,0 +1,23 @@
+
+<%= link_to '<<-- All departments', departments_path %>
+<%= link_to '  || Edit', edit_department_path(@department)%>
+
+
+
+<p>
+  <h2><%= @department.department_name %></h2>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @department.description %>
+</p>
+
+
+
+
+<hr>
+  <%= render 'workers/worker' %>
+<hr>
+
+<%= render 'workers/form' %>

@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Worker name</th>
+    <th>Responsibility</th>
+  </tr>
+
+
+  <% @department.workers.each do |worker| %>
+    <tr>
+      <td><%= worker.worker_name %></td>
+      <td><%= worker.responsibility %></td>
+      <td><%= link_to 'Edit', edit_department_worker_path(worker)%></td>
+      <td><%= link_to 'Destroy', department_worker_path(worker),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>
