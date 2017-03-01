@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :departments do
     resources :workers
+
   end
 
   resources :cars

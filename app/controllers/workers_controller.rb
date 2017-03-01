@@ -12,10 +12,29 @@ class WorkersController < ApplicationController
     redirect_to department_path(@department)
   end
 
+  def edit
+      @worker = Worker.find(params[:id])
+      puts (@worker.worker_name)
+      @cars   = Car.all
+  end
+
+  def update
+    @worker = Worker.find(params[:id])
+
+
+    if @worker.update(worker_params)
+      @department = Department.find(params[:department_id])
+      redirect_to department_path(@department)
+    else
+      render 'edit'
+    end
+  end
+
+
 
 
   private
     def worker_params
-      params.require(:worker).permit(:worker_name, :responsibility)
+      params.require(:worker).permit(:worker_name, :responsibility, car_ids:[])
     end
 end

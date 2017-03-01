@@ -1,0 +1,20 @@
+<h1>Editing Worker</h1>
+
+
+<%= form_for :worker, url: department_worker_path, method: :patch  do |f| %>
+  <p>
+    <%= f.label :worker_name %><br>
+    <%= f.text_field :worker_name %>
+  </p>
+
+  <p>
+    <%= f.label :responsibility %><br>
+    <%= f.text_area :responsibility %>
+  </p>
+
+  <%= f.select  :car_ids, options_from_collection_for_select(@cars, :id, :model), {}, {multiple: true} %>
+
+
+    <%= f.submit %>
+  </p>
+<% end %>

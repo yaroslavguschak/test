@@ -1,0 +1,27 @@
+<h1>Booking cars</h>
+
+
+  <p style="font-size: medium">
+    <%= @worker.worker_name %> is booking next cars:
+  </p>
+
+
+
+  <%= select_tag(  @cars.model,
+    options_from_collection_for_select(@cars, :plate, :model) )%>
+
+
+
+
+
+
+
+  <%= form_tag(@article, url: {action: "booking"}) do %>
+    <select>
+        <%= @cars.each do |car| %>
+          <option value="<%= car.id %>"><%= car.model %></option>
+        <% end %>
+    </select>
+    <input type="hidden" name="worker_id" value=@worker.id>
+  <%= submit_tag("Book the car") %>
+<% end %>

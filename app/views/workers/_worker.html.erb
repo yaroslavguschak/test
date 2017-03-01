@@ -9,8 +9,8 @@
     <tr>
       <td><%= worker.worker_name %></td>
       <td><%= worker.responsibility %></td>
-      <td><%= link_to 'Edit', edit_department_worker_path(worker)%></td>
-      <td><%= link_to 'Destroy', department_worker_path(worker),
+      <td><%= link_to 'Edit', edit_department_worker_path(@department, worker)%></td>
+      <td><%= link_to 'Destroy', department_workers_path(@department, worker),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
       </td>

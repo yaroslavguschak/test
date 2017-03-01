@@ -26,7 +26,7 @@ class CarsController < ApplicationController
   end
 
   def update
-    @car = Car.find(params[:id])
+    @car = Car.find(params[:car_id].to_s)
 
     if @car.update(car_params)
       redirect_to @car
@@ -34,6 +34,8 @@ class CarsController < ApplicationController
       render 'edit'
     end
   end
+
+
 
   def destroy
     @car = Car.find(params[:id])
